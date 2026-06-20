@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
-import logo from '/assets/favicon.svg'
-import './footer.css'
+import logo from '/favicon.svg'
+import './Footer.css'
 
 const SERVICE_LINKS = [
-  'Social Media Marketing',
-  'SEO Optimization',
-  'Google Ads',
-  'Meta Ads',
-  'Branding',
-  'Web Design',
+  { label: 'Social Media Marketing', slug: 'social-media-marketing' },
+  { label: 'SEO Optimization', slug: 'seo-optimization' },
+  { label: 'Google Ads', slug: 'google-ads' },
+  { label: 'Meta Ads', slug: 'meta-ads' },
+  { label: 'Branding', slug: 'branding' },
+  { label: 'Web Design', slug: 'web-design' },
 ]
 
 const QUICK_LINKS = [
@@ -54,16 +54,16 @@ const SOCIALS = [
       </svg>
     ),
   },
-  // {
-  //   label: 'X',
-  //   href: 'https://x.com',
-  //   icon: (
-  //     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-  //       <line x1="4" y1="4" x2="20" y2="20" />
-  //       <line x1="20" y1="4" x2="4" y2="20" />
-  //     </svg>
-  //   ),
-  // },
+  {
+    label: 'X',
+    href: 'https://x.com',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <line x1="4" y1="4" x2="20" y2="20" />
+        <line x1="20" y1="4" x2="4" y2="20" />
+      </svg>
+    ),
+  },
 ]
 
 export default function Footer() {
@@ -81,18 +81,13 @@ export default function Footer() {
             A full-service digital marketing studio blending strategy, creative and performance to help
             ambitious brands grow online.
           </p>
-          {/* <ul className="footer-socials"> */}
-          <div className='footer-socials'>
-
+          <div className="footer-socials">
             {SOCIALS.map((s) => (
-              // <li key={s.label}>
                 <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
                   {s.icon}
                 </a>
-              // </li>
             ))}
           </div>
-          {/* </ul> */}
         </div>
 
         <div className="footer-col">
@@ -110,8 +105,8 @@ export default function Footer() {
           <h4>Services</h4>
           <ul>
             {SERVICE_LINKS.map((s) => (
-              <li key={s}>
-                <Link to="/services">{s}</Link>
+              <li key={s.slug}>
+                <Link to={`/services/${s.slug}`}>{s.label}</Link>
               </li>
             ))}
           </ul>

@@ -10,6 +10,7 @@ import Portfolio from './pages/portfolio/Portfolio.jsx'
 import Contact from './pages/contact/Contact.jsx'
 import FAQ from './pages/faq/FAQ.jsx'
 import NotFound from './pages/notFound/NotFound.jsx'
+import ServiceDetail from './pages/serviceDetail/ServiceDetail.jsx'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/:slug" element={<ServiceDetail />} />
         <Route path="/packages" element={<Packages />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
