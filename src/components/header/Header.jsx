@@ -1,0 +1,84 @@
+import { useEffect, useState } from 'react'
+import { NavLink, Link } from 'react-router-dom'
+import logo from '/assets/favicon.svg'
+import './header.css'
+
+const NAV_LINKS = [
+    { label: 'Home', to: '/' },
+    { label: 'About', to: '/about' },
+    { label: 'Services', to: '/services' },
+    { label: 'Packages', to: '/packages' },
+    { label: 'Portfolio', to: '/portfolio' },
+    { label: 'FAQ', to: '/faq' },
+    { label: 'Contact', to: '/contact' },
+]
+
+export default function Header() {
+    const [scrolled, setScrolled] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 24)
+        onScroll()
+        window.addEventListener('scroll', onScroll, { passive: true })
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
+
+    useEffect(() => {
+        document.body.style.overflow = menuOpen ? 'hidden' : ''
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [menuOpen])
+
+    return (
+        <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
+            <div className="container header-inner">
+                <Link to="/" className="brand" onClick={() => setMenuOpen(false)} aria-label="TRIAD home">
+                    <img src={logo} alt="TRIAD — On Social Studio" className="brand-logo" />
+                </Link>
+
+                <nav className="primary-nav" aria-label="Primary">
+                    <ul>
+                        {NAV_LINKS.map((link) => (
+                            <li key={link.to}>
+                                <NavLink to={link.to} className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+                                    {link.label}
+                                </NavLink>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+
+                <div className="header-actions">
+                    <Link to="/contact" className="btn btn-accent btn-sm header-cta">
+                        Get a Quote
+                    </Link>
+
+                    <button
+                        className={`burger ${menuOpen ? 'is-open' : ''}`}
+                        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={menuOpen}
+                        onClick={() => setMenuOpen((o) => !o)}
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+
+            <div className={`mobile-nav ${menuOpen ? 'is-open' : ''}`}>
+                <ul>
+                    {NAV_LINKS.map((link, i) => (
+                        <li key={link.to} style={{ transitionDelay: `${i * 0.05}s` }}>
+                            <NavLink to={link.to} onClick={() => setMenuOpen(false)} className={({ isActive }) => (isActive ? 'active' : '')}>
+                                {link.label}
+                            </NavLink>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </header>
+    )
+}

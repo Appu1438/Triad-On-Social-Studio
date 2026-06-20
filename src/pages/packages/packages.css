@@ -1,0 +1,182 @@
+/* ---------- Billing toggle ---------- */
+
+.billing-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.billing-toggle .is-active {
+  color: var(--text-primary);
+}
+
+.toggle-badge {
+  margin-left: 0.4rem;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+
+.toggle-switch.is-on {
+  background: var(--gradient-primary);
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.toggle-switch.is-on .toggle-knob {
+  transform: translateX(22px);
+}
+
+/* ---------- Pricing cards ---------- */
+
+.pricing-grid {
+  align-items: stretch;
+}
+
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.pricing-card.is-popular {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px rgba(244, 176, 68, 0.3), var(--shadow-lg);
+  transform: translateY(-8px);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -14px;
+  right: var(--space-md);
+  background: var(--gradient-accent);
+  color: var(--text-on-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.pricing-tagline {
+  font-size: 0.88rem;
+  margin-top: 0.3rem;
+  min-height: 2.6em;
+}
+
+.pricing-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  margin: var(--space-md) 0;
+}
+
+.price-currency {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+}
+
+.price-value {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.price-period {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.price-custom {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pricing-card .triad-list {
+  flex-grow: 1;
+  margin-bottom: var(--space-md);
+}
+
+.pricing-card .triad-list li {
+  font-size: 0.88rem;
+  align-items: flex-start;
+}
+
+.pricing-card .triad-dot {
+  margin-top: 0.45rem;
+}
+
+/* ---------- Comparison table ---------- */
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 1rem 1.25rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+
+.comparison-table thead th {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  background: var(--surface-2);
+}
+
+.comparison-table .row-label {
+  text-align: left;
+  color: var(--text-secondary);
+}
+
+.comparison-table tbody tr:hover {
+  background: var(--surface-glass);
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.check-yes {
+  color: var(--color-secondary-light);
+  font-weight: 700;
+}
+
+.check-no {
+  color: var(--text-muted);
+}

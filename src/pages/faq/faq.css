@@ -1,0 +1,121 @@
+.faq-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 2fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+/* ---------- Category nav ---------- */
+
+.faq-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-md));
+}
+
+.faq-category-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  text-align: left;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface-glass);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+
+.faq-category-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.faq-category-btn.is-active {
+  color: var(--text-primary);
+  border-color: var(--color-secondary);
+  background: rgba(21, 174, 234, 0.1);
+}
+
+/* ---------- Accordion ---------- */
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-glass);
+  overflow: hidden;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.faq-item.is-open {
+  border-color: var(--border-strong);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-md);
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--surface-2);
+  font-size: 1.1rem;
+  color: var(--color-secondary-light);
+  transition: transform var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+
+.faq-item.is-open .faq-icon {
+  transform: rotate(45deg);
+  background: var(--gradient-primary);
+  color: #fff;
+}
+
+.faq-answer {
+  overflow: hidden;
+  transition: max-height var(--dur-base) var(--ease-in-out);
+}
+
+.faq-answer p {
+  padding: 0 var(--space-md) var(--space-md);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 880px) {
+  .faq-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-categories {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .faq-category-btn {
+    flex: 1 1 auto;
+  }
+}
