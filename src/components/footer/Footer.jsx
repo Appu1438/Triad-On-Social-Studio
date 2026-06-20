@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import logo from '/favicon.svg'
-import './Footer.css'
+import './footer.css'
 
 const SERVICE_LINKS = [
   { label: 'Social Media Marketing', slug: 'social-media-marketing' },
