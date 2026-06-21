@@ -125,7 +125,7 @@ export default function Packages() {
                     <>
                       <span className="price-currency">$</span>
                       <span className="price-value">{annual ? p.annual : p.monthly}</span>
-                      <span className="price-period">/mo</span>
+                      <span className="price-period">{annual ? '/ yearly':'/ monthly'}</span>
                     </>
                   ) : (
                     <span className="price-custom">Custom</span>
