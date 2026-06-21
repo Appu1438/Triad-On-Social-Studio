@@ -136,7 +136,7 @@ export default function Footer() {
 
         <div className="footer-bottom-right">
           <p>
-            Crafted with ❤️ by Adithyan
+            Crafted with <span className="footer-heart">♥</span> by Adithyan
           </p>
         </div>
       </div>

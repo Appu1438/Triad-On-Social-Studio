@@ -127,3 +127,30 @@
     text-align: center;
   }
 }
+
+.footer-heart {
+  display: inline-block;
+  color: #ff4d6d;
+  margin: 0 2px;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.15);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.15);
+  }
+}
