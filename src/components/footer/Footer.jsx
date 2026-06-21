@@ -73,9 +73,9 @@ export default function Footer() {
           </p>
           <div className="footer-socials">
             {SOCIALS.map((s) => (
-                <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
-                  {s.icon}
-                </a>
+              <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
+                {s.icon}
+              </a>
             ))}
           </div>
         </div>
@@ -122,8 +122,23 @@ export default function Footer() {
       </div>
 
       <div className="container footer-bottom">
-        <p>&copy; {year} TRIAD — On Social Studio. All rights reserved.</p>
-        <p className="footer-tagline">We help your brand grow.</p>
+        <div className="footer-bottom-left">
+          <p>
+            © {year} TRIAD — On Social Studio. All rights reserved.
+          </p>
+        </div>
+
+        <div className="footer-bottom-center">
+          <p className="footer-tagline">
+            We help your brand grow.
+          </p>
+        </div>
+
+        <div className="footer-bottom-right">
+          <p>
+            Crafted with ❤️ by Adithyan
+          </p>
+        </div>
       </div>
     </footer>
   )
