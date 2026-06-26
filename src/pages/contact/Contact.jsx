@@ -5,7 +5,7 @@ import './contact.css'
 const INFO_CARDS = [
     {
         title: 'Email Us',
-        value: 'hello@triadsocial.studio',
+        value: 'triadonsocialstudio@gmail.com',
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                 <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -15,7 +15,7 @@ const INFO_CARDS = [
     },
     {
         title: 'Call Us',
-        value: '+1 (555) 204-7890',
+        value: '+91 6238 629 969 , +91 9539 600 818',
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                 <path d="M5.5 4.5h3l1.5 4-2 1.5a13 13 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 3.5 6.7a2 2 0 0 1 2-2.2z" />
@@ -24,7 +24,7 @@ const INFO_CARDS = [
     },
     {
         title: 'Visit Us',
-        value: '120 Bayfront Ave, Suite 4, San Diego, CA',
+        value: 'Near , Iron Bridge , Kodiveedu , Alappuzha , Kerala 688001',
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                 <path d="M12 21s7-6.5 7-11.5a7 7 0 1 0-14 0C5 14.5 12 21 12 21z" />
@@ -35,9 +35,9 @@ const INFO_CARDS = [
 ]
 
 const HOURS = [
-    { day: 'Monday – Thursday', time: '9:00 AM – 6:00 PM' },
-    { day: 'Friday', time: '9:00 AM – 4:00 PM' },
-    { day: 'Saturday – Sunday', time: 'Closed' },
+    { day: 'Monday – Friday', time: '9:00 AM – 6:00 PM' },
+    { day: 'Saturday', time: '9:00 AM – 4:00 PM' },
+    { day: 'Sunday', time: 'Closed' },
 ]
 
 const SOCIALS = [
@@ -48,7 +48,7 @@ const SOCIALS = [
 ]
 
 const MAP_SRC =
-    'https://www.google.com/maps?q=120+Bayfront+Ave+San+Diego+CA&output=embed'
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2861.728596619003!2d76.33540641687553!3d9.495189605801603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0884f5a093da37%3A0x72f8a817c9cc8094!2sIron%20Bridge%2C%20Kodiveedu%2C%20Alappuzha%2C%20Kerala%20688001!5e0!3m2!1sen!2sin!4v1782450751848!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin'
 
 export default function Contact() {
     const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' })
@@ -59,12 +59,52 @@ export default function Contact() {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        setStatus('submitting')
-        setTimeout(() => {
-            setStatus('sent')
-        }, 900)
-    }
+        e.preventDefault();
+
+        setStatus("submitting");
+
+        const whatsappNumber = "916238629969";
+
+        const message = `
+━━━━━━━━━━━━━━━━━━━━━━
+✨ *NEW WEBSITE ENQUIRY*
+━━━━━━━━━━━━━━━━━━━━━━
+
+👤 *Name*
+${form.name}
+
+📧 *Email*
+${form.email}
+
+📱 *Phone*
+${form.phone || "Not Provided"}
+
+📂 *Subject*
+${form.subject}
+
+💬 *Message*
+${form.message}
+
+━━━━━━━━━━━━━━━━━━━━━━
+📍 *Source:* Triad On Social Studio Website
+🕒 *Submitted:* ${new Date().toLocaleString("en-IN")}
+━━━━━━━━━━━━━━━━━━━━━━
+`;
+
+        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+        window.open(url, "_blank");
+
+        setStatus("sent");
+
+        setForm({
+            name: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+        });
+    };
 
     return (
         <>

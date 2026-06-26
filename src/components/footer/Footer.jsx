@@ -106,13 +106,16 @@ export default function Footer() {
           <h4>Get In Touch</h4>
           <ul className="footer-contact">
             <li>
-              <span className="triad-dot" data-n="1" /> hello@triadsocial.studio
+              <span className="triad-dot" data-n="1" /> triadonsocialstudio@gmail.com
             </li>
             <li>
-              <span className="triad-dot" data-n="2" /> +1 (555) 204-7890
+              <span className="triad-dot" data-n="2" /> +91 6238 629 969 
             </li>
             <li>
-              <span className="triad-dot" data-n="3" /> 120 Bayfront Ave, Suite 4, San Diego, CA
+              <span className="triad-dot" data-n="2" /> +91 9539 600 818
+            </li>
+            <li>
+              <span className="triad-dot" data-n="3" /> Near , Iron Bridge , Kodiveedu , Alappuzha , Kerala 688001
             </li>
           </ul>
           <Link to="/contact" className="btn btn-outline btn-sm" style={{ marginTop: '1rem' }}>
